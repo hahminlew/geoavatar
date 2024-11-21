@@ -182,273 +182,241 @@
 </section>
 
 <section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/sam_with_audio.mp4"
-                type="video/mp4">
-      </video>
-      <!-- Mute/Unmute Icon Button -->
-      <div id="muteToggle" style="
-          position: absolute;
-          bottom: 145px;
-          right: 40px;
-          background-color: rgba(0, 0, 0, 0.7);
-          border-radius: 10%;
-          padding: 10px;
-          cursor: pointer;
-          z-index: 10; /* Ensure it appears above the canvas */
-      ">
-          <img id="muteIcon" src="https://img.icons8.com/ios-filled/50/ffffff/mute.png" alt="Mute" style="width: 30px; height: 30px;">
-      </div>
-      <script>
-        document.addEventListener('DOMContentLoaded', () => {
-          const video = document.getElementById('teaser');
-          const muteToggle = document.getElementById('muteToggle');
-          const muteIcon = document.getElementById('muteIcon');
-      
-          muteToggle.addEventListener('click', () => {
-            if (video.muted) {
-              video.muted = false;
-              muteIcon.src = 'https://img.icons8.com/ios-filled/50/ffffff/high-volume.png'; // Unmute icon
-            } else {
-              video.muted = true;
-              muteIcon.src = 'https://img.icons8.com/ios-filled/50/ffffff/mute.png'; // Mute icon
-            }
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <div class="columns is-centered has-text-centered">
+          <h2 class="title is-3">Application Examples</h2>
+        </div>
+        <video id="teaser" autoplay muted loop playsinline height="100%">
+          <source src="./static/videos/demo.mp4"
+                  type="video/mp4">
+        </video>
+        <!-- Mute/Unmute Icon Button -->
+        <div id="muteToggle" style="
+            position: absolute;
+            bottom: 415px;
+            right: 40px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10%;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10; /* Ensure it appears above the canvas */
+        ">
+            <img id="muteIcon" src="https://img.icons8.com/ios-filled/50/ffffff/mute.png" alt="Mute" style="width: 25px; height: 25px;">
+        </div>
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            const video = document.getElementById('teaser');
+            const muteToggle = document.getElementById('muteToggle');
+            const muteIcon = document.getElementById('muteIcon');
+        
+            muteToggle.addEventListener('click', () => {
+              if (video.muted) {
+                video.muted = false;
+                muteIcon.src = 'https://img.icons8.com/ios-filled/50/ffffff/high-volume.png'; // Unmute icon
+              } else {
+                video.muted = true;
+                muteIcon.src = 'https://img.icons8.com/ios-filled/50/ffffff/mute.png'; // Mute icon
+              }
+            });
+        
+            // Sync icon on volume change
+            video.addEventListener('volumechange', () => {
+              muteIcon.src = video.muted
+                ? 'https://img.icons8.com/ios-filled/50/ffffff/mute.png'
+                : 'https://img.icons8.com/ios-filled/50/ffffff/high-volume.png';
+            });
           });
-      
-          // Sync icon on volume change
-          video.addEventListener('volumechange', () => {
-            muteIcon.src = video.muted
-              ? 'https://img.icons8.com/ios-filled/50/ffffff/mute.png'
-              : 'https://img.icons8.com/ios-filled/50/ffffff/high-volume.png';
+        </script>
+        <h2 class="content has-text-justified">
+          By integrating a large language model, a text-to-speech model, and speech-driven 3D facial animation modules to our proposed GeoAvatar framework, we demonstrated a real-time interactive digital human demo.
+        </h2>
+        <p>
+          Our GeoAvatar is a promising solution for diverse interactive chat avatar scenarios with a speech-driven 3D facial animation module [<a href="">1</a>].             
+          Point and drag your mouse to see the results!
+        </p>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item" style="position: relative;">
+            <div class="video-compare-container">
+              <video class="video" id="test1" loop playsinline muted autoplay src="./static/videos/aispeech_000.mp4" onplay="resizeAndPlay(this)"></video>
+              <canvas height="0" class="videoMerge" id="test1Merge"></canvas>
+            </div>
+            <!-- Mute/Unmute Icon Button -->
+            <div id="muteToggle1" style="
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                background-color: rgba(0, 0, 0, 0.7);
+                border-radius: 10%;
+                padding: 10px;
+                cursor: pointer;
+                z-index: 10; /* Ensure it appears above the canvas */
+            ">
+                <img id="muteIcon1" src="https://img.icons8.com/ios-filled/50/ffffff/mute.png" alt="Mute" style="width: 20px; height: 20px;">
+            </div>
+          </div>
+          <div class="item" style="position: relative;">
+            <div class="video-compare-container">
+              <video class="video" id="test2" loop playsinline muted autoplay src="./static/videos/aispeech_001.mp4" onplay="resizeAndPlay(this)"></video>
+              <canvas height="0" class="videoMerge" id="test2Merge"></canvas>
+            </div>
+            <!-- Mute/Unmute Icon Button -->
+            <div id="muteToggle2" style="
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                background-color: rgba(0, 0, 0, 0.7);
+                border-radius: 10%;
+                padding: 10px;
+                cursor: pointer;
+                z-index: 10; /* Ensure it appears above the canvas */
+            ">
+                <img id="muteIcon2" src="https://img.icons8.com/ios-filled/50/ffffff/mute.png" alt="Mute" style="width: 20px; height: 20px;">
+            </div>
+          </div>
+          <div class="item" style="position: relative;">
+            <div class="video-compare-container">
+              <video class="video" id="test3" loop playsinline muted autoplay src="./static/videos/aispeech_002.mp4" onplay="resizeAndPlay(this)"></video>
+              <canvas height="0" class="videoMerge" id="test3Merge"></canvas>
+            </div>
+            <!-- Mute/Unmute Icon Button -->
+            <div id="muteToggle3" style="
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                background-color: rgba(0, 0, 0, 0.7);
+                border-radius: 10%;
+                padding: 10px;
+                cursor: pointer;
+                z-index: 10; /* Ensure it appears above the canvas */
+            ">
+                <img id="muteIcon3" src="https://img.icons8.com/ios-filled/50/ffffff/mute.png" alt="Mute" style="width: 20px; height: 20px;">
+            </div>
+          </div>
+          <div class="item" style="position: relative;">
+            <div class="video-compare-container">
+              <video class="video" id="test4" loop playsinline muted autoplay src="./static/videos/aispeech-1_000.mp4" onplay="resizeAndPlay(this)"></video>
+              <canvas height="0" class="videoMerge" id="test4Merge"></canvas>
+            </div>
+            <!-- Mute/Unmute Icon Button -->
+            <div id="muteToggle4" style="
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                background-color: rgba(0, 0, 0, 0.7);
+                border-radius: 10%;
+                padding: 10px;
+                cursor: pointer;
+                z-index: 10; /* Ensure it appears above the canvas */
+            ">
+                <img id="muteIcon4" src="https://img.icons8.com/ios-filled/50/ffffff/mute.png" alt="Mute" style="width: 20px; height: 20px;">
+            </div>
+          </div>
+          <div class="item" style="position: relative;">
+            <div class="video-compare-container">
+              <video class="video" id="test5" loop playsinline muted autoplay src="./static/videos/aispeech-1_001.mp4" onplay="resizeAndPlay(this)"></video>
+              <canvas height="0" class="videoMerge" id="test5Merge"></canvas>
+            </div>
+            <!-- Mute/Unmute Icon Button -->
+            <div id="muteToggle5" style="
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                background-color: rgba(0, 0, 0, 0.7);
+                border-radius: 10%;
+                padding: 10px;
+                cursor: pointer;
+                z-index: 10; /* Ensure it appears above the canvas */
+            ">
+                <img id="muteIcon5" src="https://img.icons8.com/ios-filled/50/ffffff/mute.png" alt="Mute" style="width: 20px; height: 20px;">
+            </div>
+          </div>
+          <div class="item" style="position: relative;">
+            <div class="video-compare-container">
+              <video class="video" id="test6" loop playsinline muted autoplay src="./static/videos/aispeech-1_002.mp4" onplay="resizeAndPlay(this)"></video>
+              <canvas height="0" class="videoMerge" id="test6Merge"></canvas>
+            </div>
+            <!-- Mute/Unmute Icon Button -->
+            <div id="muteToggle6" style="
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                background-color: rgba(0, 0, 0, 0.7);
+                border-radius: 10%;
+                padding: 10px;
+                cursor: pointer;
+                z-index: 10; /* Ensure it appears above the canvas */
+            ">
+                <img id="muteIcon6" src="https://img.icons8.com/ios-filled/50/ffffff/mute.png" alt="Mute" style="width: 20px; height: 20px;">
+            </div>
+          </div>
+        </div>
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const slides = [
+            { videoId: 'test1', toggleId: 'muteToggle1', iconId: 'muteIcon1' },
+            { videoId: 'test2', toggleId: 'muteToggle2', iconId: 'muteIcon2' },
+            { videoId: 'test3', toggleId: 'muteToggle3', iconId: 'muteIcon3' },
+            { videoId: 'test4', toggleId: 'muteToggle4', iconId: 'muteIcon4' },
+            { videoId: 'test5', toggleId: 'muteToggle5', iconId: 'muteIcon5' },
+            { videoId: 'test6', toggleId: 'muteToggle6', iconId: 'muteIcon6' },
+          ];
+  
+          slides.forEach(({ videoId, toggleId, iconId }) => {
+            const video = document.getElementById(videoId);
+            const muteToggle = document.getElementById(toggleId);
+            const muteIcon = document.getElementById(iconId);
+  
+            muteToggle.addEventListener('click', () => {
+              if (video.muted) {
+                video.muted = false;
+                muteIcon.src = 'https://img.icons8.com/ios-filled/50/ffffff/high-volume.png'; // Unmute icon
+              } else {
+                video.muted = true;
+                muteIcon.src = 'https://img.icons8.com/ios-filled/50/ffffff/mute.png'; // Mute icon
+              }
+            });
+  
+            video.addEventListener('volumechange', () => {
+              muteIcon.src = video.muted
+                ? 'https://img.icons8.com/ios-filled/50/ffffff/mute.png'
+                : 'https://img.icons8.com/ios-filled/50/ffffff/high-volume.png';
+            });
           });
         });
       </script>
-      <h2 class="content has-text-justified">
-        We propose <b>CHANGER</b>, a novel pipeline for <b>C</b>onsistent <b>H</b>ead blending with predictive <b>A</b>tte<b>N</b>tion <b>G</b>uided foreground <b>E</b>stimation under chroma key setting for indust<b>R</b>ial applications.
-        CHANGER generates a high-fidelity head blended result.
-      </h2>
+      </div>
     </div>
+</section>
+
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{lew2024towards,
+      title={Towards High-fidelity Head Blending with Chroma Keying for Industrial Applications},
+      author={Lew, Hah Min and Yoo, Sahng-Min and Kang, Hyunwoo and Park, Gyeong-Moon},
+      journal={arXiv preprint arXiv:2411.00652},
+      year={2024}
+    }</code></pre>
   </div>
-</section>
+</section> -->
 
-
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-lincoln-2">
-          <video poster="" id="lincoln-2-green" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/lincoln2_green.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-sejong-2">
-          <video poster="" id="sejong-2-green" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/sejong2_green.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-lincoln-1">
-          <video poster="" id="lincoln-1-green" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/lincoln1_green.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-sejong-1">
-          <video poster="" id="sejong-1-green" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/sejong1_green.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-lincoln-3">
-          <video poster="" id="lincoln-3-green" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/lincoln3_green.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-sejong-3">
-          <video poster="" id="sejong-3-green" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/sejong3_green.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-    <h2 class="subtitle has-text-centered">
-      Head blending results from two source images to three target videos.
-    </h2>
-  </div>
-</section>
-
-<hr>
-
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">High-Fidelity Industrial Head Blending Pipeline</h2>
-          <img src="./static/images/pipeline.jpg" class="center">
-          <h2 class="content has-text-justified">
-            Illustration of our CHANGER pipeline: After acquiring the actor's frames (source), we can seamlessly insert acting scenes into the desired scenes with our CHANGER.
-            Chroma keying ensures high-fidelity backgrounds. Here, both of the source and the target actors are virtual humans.
-          </h2>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Various Industrial Application Examples</h2>
-          <img src="./static/images/industrial_examples.jpg" class="center">
-          <h2 class="content has-text-justified">
-            By leveraging chroma key technique with our proposed CHANGER pipeline, we can obtain various high-fidelity head blended videos in the wild environments. 
-            The red boxes represent the source images.
-          </h2>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Effects of Our Contributions</h2>
-        <div class="content has-text-justified">
-          <p>
-            Our novel H<sup>2</sup> augmentation and FPAT with chroma keying successfully achieves high-fidelity head blending performance.
-            Point and drag your mouse to see the results!
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-          <div class="video-compare-container">
-              <video class="video" id="lincoln1" loop playsinline autoPlay muted src="./static/videos/lincoln1.mp4" onplay="resizeAndPlay(this)"></video>
-              <canvas height=0 class="videoMerge" id="lincoln1Merge"></canvas>
-          </div>
-      </div>
-    </div>
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-          <div class="video-compare-container">
-              <video class="video" id="sejong1" loop playsinline autoPlay muted src="./static/videos/sejong1.mp4" onplay="resizeAndPlay(this)"></video>
-              <canvas height=0 class="videoMerge" id="sejong1Merge"></canvas>
-          </div>
-      </div>
-    </div>
-  </div>  
-</section>
 
 <hr>
                 
 <section class="section">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            We introduce industrial Head Blending pipeline for the task of seamlessly integrating an actor’s head onto a target body in digital content creation, which is essential for applications such as visual effects (VFX), digital human creation, and virtual avatars.
-            The key challenge stems from discrepancies in head shape and hair structure, which lead to unnatural boundaries and blending artifacts. 
-            Existing methods treat foreground and background as a single task, resulting in suboptimal blending quality. 
-            To address this problem, we propose <b>CHANGER</b>, a novel pipeline that decouples background integration from foreground blending. 
-            By utilizing chroma keying for artifact-free background generation and introducing <b>H</b>ead shape and long <b>H</b>air <b>augmentation</b> (<b>H<sup>2</sup> augmentation</b>) to simulate a wide range of head shapes and hair styles, CHANGER improves generalization on innumerable various real-world cases. 
-            Furthermore, our <b>F</b>oreground <b>P</b>redictive <b>A</b>ttention <b>T</b>ransformer (<b>FPAT</b>) module enhances foreground blending by predicting and focusing on key head and body regions. 
-            Quantitative and qualitative evaluations on benchmark datasets demonstrate that our CHANGER outperforms state-of-the-art methods, delivering high-fidelity, industrial-grade results.   
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Motivations</h2>
-          <img src="./static/images/motivation.jpg" class="center">
-          <h2 class="content has-text-justified">
-            We propose CHANGER to consider the real-world application. As shown in (a), the existing work [2] (<a href="">H2SB</a>) shows severe artifacts on inpainting regions. 
-            To inpaint the background flawlessly, we propose to introduce chroma keying in the head blending framework. 
-            However, it still shows low-fidelity results to inpaint the neck and the body, which is hidden due to the head shape and hair difference described in a red box of (b). 
-            CHANGER generates the high-fidelity foreground with H<sup>2</sup> augmentation and Foreground Predictive Attention Transformer (FPAT). 
-            CHANGER removes artifacts as shown in the blue boxes of (b) and (c), and easily changes various high-fidelity real-world backgrounds.
-          </h2>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Methods</h2>
-          <img src="./static/images/network.jpg" class="center">
-          <h2 class="content has-text-justified">
-            CHANGER consists of H<sup>2</sup> augmentation, an encoder (E), a head colorizer, a body blender including Foreground Predictive Attention Transformer (FPAT) modules, and a decoder (D).
-            We visualize our proposed input (X) manipulation method with overall training (blue) and inference (red) schemes. 
-            The head colorizer colorizes the gray head of X, and the body blender inpaints the hidden body and the neck with a foreground mask-aware attention mechanism.
-            The Foreground-Prediction module predicts the foreground mask (M) of the body and the neck region, and the attention is reweighted according to M.
-          </h2>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Comparisons</h2>
-          <img src="./static/images/main_comparison.jpg" class="center">
-          <h2 class="content has-text-justified">
-            We compared qualitative results between CHANGER with the state-of-the-art head blending and face swapping models: H2SB [2], SimSwap [3], RAFSwap [4], BlendFace [5], and E4S [6]. 
-            "CK" represents inference on the chromakey configuration.
-          </h2>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-
-    <!-- Concurrent Work. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">References</h2>
 
         <div class="content has-text-justified">
           <p>
-            We utilized the pre-trained face reenactment network to generate our head blending results.
+            [1] <a href="https://github.com/DiffPoseTalk/DiffPoseTalk">DiffPoseTalk: Speech-Driven Stylistic 3D Facial Animation and Head Pose Generation via Diffusion Models</a>.
           </p>
-          <p>
-            [1] <a href="https://github.com/wyhsirius/LIA">Latent Image Animator: Learning to Animate Images via Latent Space Navigation</a>.
-          </p>
-          <p>
+          <!-- <p>
             [2] <a href="https://github.com/jmliu88/HeSer">Few-Shot Head Swapping in the Wild</a>.
           </p>
           <p>
@@ -462,25 +430,10 @@
           </p>
           <p>
             [6] <a href="https://github.com/e4s2022/e4s">E4S: Fine-grained Face Swapping via Regional GAN Inversion</a>.
-          </p>
+          </p> -->
         </div>
       </div>
     </div>
-    <!--/ Concurrent Work. -->
-
-  </div>
-</section>
-
-
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{lew2024towards,
-      title={Towards High-fidelity Head Blending with Chroma Keying for Industrial Applications},
-      author={Lew, Hah Min and Yoo, Sahng-Min and Kang, Hyunwoo and Park, Gyeong-Moon},
-      journal={arXiv preprint arXiv:2411.00652},
-      year={2024}
-    }</code></pre>
   </div>
 </section>
 
@@ -488,30 +441,29 @@
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
-      <a class="icon-link"
-         href="https://arxiv.org/abs/2411.00652">
-        <i class="fas fa-file-pdf"></i>
+      <a class="icon-link" href="">
+        <svg class="svg-inline--fa fa-file-pdf fa-w-12" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-pdf" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"></path></svg><!-- <i class="fas fa-file-pdf"></i> Font Awesome fontawesome.com -->
+      </a>
+      <a class="icon-link" href="" disabled="">
+        <svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github"></i> Font Awesome fontawesome.com -->
       </a>
     </div>
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content">
           <p>
-            This website including source images and backgrounds is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            This website including source images and backgrounds is licensed under a <a rel="license" href="">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
           <p>
-            This project page is borrowed from the <a
-              href="https://github.com/nerfies/nerfies.github.io">Nerfies Authors</a>,
-            and partially employ the point-and-drag function via mouse from <a
-            href="https://dorverbin.github.io/refnerf/">Ref-Nerf</a>.
+            This project page is borrowed from the <a href="">Nerfies Authors</a>,
+            and is partially based on the point-and-drag function via mouse from <a href="">Ref-Nerf</a>.
             Thanks for sharing the awesome templates.
           </p>
       </div>
     </div>
   </div>
-</footer>
+</div></footer>
 
 </body>
 </html>
