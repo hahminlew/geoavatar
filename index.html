@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="GeoAvatar: Adaptive Geometrical Gaussian Splatting for 3D Head Avatar.">
+  <meta name="keywords" content="Gaussian Splatting, 3D Head Avatar">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GeoAvatar: Adaptive Geometrical Gaussian Splatting for 3D Head Avatar</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/github.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/video_comparison.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://hahminlew.github.io">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hahminlew.github.io/changer/">
+            CHANGER
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">GeoAvatar: Adaptive Geometrical Gaussian Splatting for 3D Head Avatar</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+                <a href="https://seungjun-moon.github.io/">SeungJun Moon</a><sup>1*</sup></span>
+            <span class="author-block">
+              <a href="https://hahminlew.github.io/">Hah Min Lew</a><sup>1*</sup></span>
+            <span class="author-block">
+              <a href="">Seungeun Lee</a><sup>1</sup></span>
+            <span class="author-block">
+              <a href="https://scholar.google.co.kr/citations?user=oV7PzVAAAAAJ&hl">Ji-Su Kang</a><sup>1</sup></span>
+            <span class="author-block">
+              <a href="https://agi.khu.ac.kr/">Gyeong-Moon Park</a><sup>2</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Klleon AI Research,</span>
+            <span class="author-block"><sup>2</sup>Kyung Hee University</span>
+          </div>
+          <!-- <div class="is-size-4 publication-authors">
+            <span class="author-block"><sup></sup>WACV 2025</span>
+          </div> -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">(*equal contribution)</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2411.00652"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/sam_with_audio.mp4"
+                type="video/mp4">
+      </video>
+      <!-- Mute/Unmute Icon Button -->
+      <div id="muteToggle" style="
+          position: absolute;
+          bottom: 145px;
+          right: 40px;
+          background-color: rgba(0, 0, 0, 0.7);
+          border-radius: 10%;
+          padding: 10px;
+          cursor: pointer;
+          z-index: 10; /* Ensure it appears above the canvas */
+      ">
+          <img id="muteIcon" src="https://img.icons8.com/ios-filled/50/ffffff/mute.png" alt="Mute" style="width: 30px; height: 30px;">
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const video = document.getElementById('teaser');
+          const muteToggle = document.getElementById('muteToggle');
+          const muteIcon = document.getElementById('muteIcon');
+      
+          muteToggle.addEventListener('click', () => {
+            if (video.muted) {
+              video.muted = false;
+              muteIcon.src = 'https://img.icons8.com/ios-filled/50/ffffff/high-volume.png'; // Unmute icon
+            } else {
+              video.muted = true;
+              muteIcon.src = 'https://img.icons8.com/ios-filled/50/ffffff/mute.png'; // Mute icon
+            }
+          });
+      
+          // Sync icon on volume change
+          video.addEventListener('volumechange', () => {
+            muteIcon.src = video.muted
+              ? 'https://img.icons8.com/ios-filled/50/ffffff/mute.png'
+              : 'https://img.icons8.com/ios-filled/50/ffffff/high-volume.png';
+          });
+        });
+      </script>
+      <h2 class="content has-text-justified">
+        We propose <b>CHANGER</b>, a novel pipeline for <b>C</b>onsistent <b>H</b>ead blending with predictive <b>A</b>tte<b>N</b>tion <b>G</b>uided foreground <b>E</b>stimation under chroma key setting for indust<b>R</b>ial applications.
+        CHANGER generates a high-fidelity head blended result.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-lincoln-2">
+          <video poster="" id="lincoln-2-green" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/lincoln2_green.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-sejong-2">
+          <video poster="" id="sejong-2-green" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/sejong2_green.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-lincoln-1">
+          <video poster="" id="lincoln-1-green" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/lincoln1_green.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-sejong-1">
+          <video poster="" id="sejong-1-green" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/sejong1_green.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-lincoln-3">
+          <video poster="" id="lincoln-3-green" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/lincoln3_green.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-sejong-3">
+          <video poster="" id="sejong-3-green" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/sejong3_green.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <h2 class="subtitle has-text-centered">
+      Head blending results from two source images to three target videos.
+    </h2>
+  </div>
+</section>
+
+<hr>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">High-Fidelity Industrial Head Blending Pipeline</h2>
+          <img src="./static/images/pipeline.jpg" class="center">
+          <h2 class="content has-text-justified">
+            Illustration of our CHANGER pipeline: After acquiring the actor's frames (source), we can seamlessly insert acting scenes into the desired scenes with our CHANGER.
+            Chroma keying ensures high-fidelity backgrounds. Here, both of the source and the target actors are virtual humans.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Various Industrial Application Examples</h2>
+          <img src="./static/images/industrial_examples.jpg" class="center">
+          <h2 class="content has-text-justified">
+            By leveraging chroma key technique with our proposed CHANGER pipeline, we can obtain various high-fidelity head blended videos in the wild environments. 
+            The red boxes represent the source images.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Effects of Our Contributions</h2>
+        <div class="content has-text-justified">
+          <p>
+            Our novel H<sup>2</sup> augmentation and FPAT with chroma keying successfully achieves high-fidelity head blending performance.
+            Point and drag your mouse to see the results!
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+          <div class="video-compare-container">
+              <video class="video" id="lincoln1" loop playsinline autoPlay muted src="./static/videos/lincoln1.mp4" onplay="resizeAndPlay(this)"></video>
+              <canvas height=0 class="videoMerge" id="lincoln1Merge"></canvas>
+          </div>
+      </div>
+    </div>
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+          <div class="video-compare-container">
+              <video class="video" id="sejong1" loop playsinline autoPlay muted src="./static/videos/sejong1.mp4" onplay="resizeAndPlay(this)"></video>
+              <canvas height=0 class="videoMerge" id="sejong1Merge"></canvas>
+          </div>
+      </div>
+    </div>
+  </div>  
+</section>
+
+<hr>
+                
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We introduce industrial Head Blending pipeline for the task of seamlessly integrating an actor’s head onto a target body in digital content creation, which is essential for applications such as visual effects (VFX), digital human creation, and virtual avatars.
+            The key challenge stems from discrepancies in head shape and hair structure, which lead to unnatural boundaries and blending artifacts. 
+            Existing methods treat foreground and background as a single task, resulting in suboptimal blending quality. 
+            To address this problem, we propose <b>CHANGER</b>, a novel pipeline that decouples background integration from foreground blending. 
+            By utilizing chroma keying for artifact-free background generation and introducing <b>H</b>ead shape and long <b>H</b>air <b>augmentation</b> (<b>H<sup>2</sup> augmentation</b>) to simulate a wide range of head shapes and hair styles, CHANGER improves generalization on innumerable various real-world cases. 
+            Furthermore, our <b>F</b>oreground <b>P</b>redictive <b>A</b>ttention <b>T</b>ransformer (<b>FPAT</b>) module enhances foreground blending by predicting and focusing on key head and body regions. 
+            Quantitative and qualitative evaluations on benchmark datasets demonstrate that our CHANGER outperforms state-of-the-art methods, delivering high-fidelity, industrial-grade results.   
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Motivations</h2>
+          <img src="./static/images/motivation.jpg" class="center">
+          <h2 class="content has-text-justified">
+            We propose CHANGER to consider the real-world application. As shown in (a), the existing work [2] (<a href="">H2SB</a>) shows severe artifacts on inpainting regions. 
+            To inpaint the background flawlessly, we propose to introduce chroma keying in the head blending framework. 
+            However, it still shows low-fidelity results to inpaint the neck and the body, which is hidden due to the head shape and hair difference described in a red box of (b). 
+            CHANGER generates the high-fidelity foreground with H<sup>2</sup> augmentation and Foreground Predictive Attention Transformer (FPAT). 
+            CHANGER removes artifacts as shown in the blue boxes of (b) and (c), and easily changes various high-fidelity real-world backgrounds.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Methods</h2>
+          <img src="./static/images/network.jpg" class="center">
+          <h2 class="content has-text-justified">
+            CHANGER consists of H<sup>2</sup> augmentation, an encoder (E), a head colorizer, a body blender including Foreground Predictive Attention Transformer (FPAT) modules, and a decoder (D).
+            We visualize our proposed input (X) manipulation method with overall training (blue) and inference (red) schemes. 
+            The head colorizer colorizes the gray head of X, and the body blender inpaints the hidden body and the neck with a foreground mask-aware attention mechanism.
+            The Foreground-Prediction module predicts the foreground mask (M) of the body and the neck region, and the attention is reweighted according to M.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Comparisons</h2>
+          <img src="./static/images/main_comparison.jpg" class="center">
+          <h2 class="content has-text-justified">
+            We compared qualitative results between CHANGER with the state-of-the-art head blending and face swapping models: H2SB [2], SimSwap [3], RAFSwap [4], BlendFace [5], and E4S [6]. 
+            "CK" represents inference on the chromakey configuration.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+
+    <!-- Concurrent Work. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">References</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            We utilized the pre-trained face reenactment network to generate our head blending results.
+          </p>
+          <p>
+            [1] <a href="https://github.com/wyhsirius/LIA">Latent Image Animator: Learning to Animate Images via Latent Space Navigation</a>.
+          </p>
+          <p>
+            [2] <a href="https://github.com/jmliu88/HeSer">Few-Shot Head Swapping in the Wild</a>.
+          </p>
+          <p>
+            [3] <a href="https://github.com/neuralchen/SimSwap">SimSwap: An Efficient Framework For High Fidelity Face Swapping</a>.
+          </p>
+          <p>
+            [4] <a href="https://github.com/xc-csc101/RAFSwap">Region-Aware Face Swapping</a>.
+          </p>
+          <p>
+            [5] <a href="https://github.com/mapooon/BlendFace">BlendFace: Re-designing Identity Encoders for Face-Swapping</a>.
+          </p>
+          <p>
+            [6] <a href="https://github.com/e4s2022/e4s">E4S: Fine-grained Face Swapping via Regional GAN Inversion</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Concurrent Work. -->
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{lew2024towards,
+      title={Towards High-fidelity Head Blending with Chroma Keying for Industrial Applications},
+      author={Lew, Hah Min and Yoo, Sahng-Min and Kang, Hyunwoo and Park, Gyeong-Moon},
+      journal={arXiv preprint arXiv:2411.00652},
+      year={2024}
+    }</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://arxiv.org/abs/2411.00652">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website including source images and backgrounds is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This project page is borrowed from the <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies Authors</a>,
+            and partially employ the point-and-drag function via mouse from <a
+            href="https://dorverbin.github.io/refnerf/">Ref-Nerf</a>.
+            Thanks for sharing the awesome templates.
+          </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
