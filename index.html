@@ -131,15 +131,39 @@
 
 <section class="hero teaser">
     <div class="container is-max-desktop">
-      <div class="hero body">
+        <div class="hero body">
         <img src="./static/images/front.jpg" class="center">
         <h2 class="content has-text-justified">
-          We propose <b>GeoAvatar</b>, a novel adaptive Geometrical Gaussian Splatting framework for 3D head avatar, and release a new monocular video dataset, <b>DynamicFace</b>. 
-          Given an input novel animation, GeoAvatar generates robust and high textured 3D head avatars.
+            We propose <b>GeoAvatar</b>, a novel adaptive Geometrical Gaussian Splatting framework for 3D head avatar, and release a new monocular video dataset, <b>DynamicFace</b>. 
+            Given an input novel animation, GeoAvatar generates robust and high textured 3D head avatars.
         </h2>
-      </div>
+        </div>
     </div>
-  </section>
+</section>
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+        <div class="hero body">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+            <p>
+                Despite recent progress in 3D head avatar generation, balancing high-fidelity identity preservation, i.e., reconstruction, with robustness to novel poses and expressions, i.e., animation, remains a challenge.
+                Existing methods struggle to adapt Gaussians to varying geometrical deviations across facial regions, resulting in suboptimal quality. 
+                To address this, we propose <b>GeoAvatar</b>, a framework for adaptive geometrical Gaussian Splatting. 
+                GeoAvatar leverages <b>A</b>daptive <b>G</b>aussian <b>I</b>nitialization (<b>AGI</b>), an unsupervised method that segments Gaussians into rigid and flexible sets for adaptive offset regularization. 
+                We also introduce a novel mouth interior structure and deformation network to improve animation fidelity and a new regularization loss for precise rigging to 3DMM faces. 
+                Finally, we release DynamicFace, a monocular video dataset with highly expressive facial motions. 
+                Extensive experiments show the superiority of GeoAvatar compared to state-of-the-art methods in head avatar reconstruction and animation.
+                Dataset and pre-trained models will be released after the review.
+            </p>
+            </div>
+            <h2 class="title is-3">Methods</h2>
+            <img src="./static/images/structure.jpg" class="center">
+        </div>
+        </div>
+    </div>
+</section>
 
 <section class="hero teaser">
   <div class="container is-max-desktop">
