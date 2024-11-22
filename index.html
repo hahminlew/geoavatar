@@ -212,7 +212,7 @@
             padding: 10px;
             cursor: pointer;
         ">
-            <img id="muteIcon" src="https://img.icons8.com/ios-filled/50/ffffff/mute.png" alt="Mute" style="width: 25px; height: 25px;">
+            <img id="muteIcon" src="./static/images/mute.png" alt="Mute" style="width: 25px; height: 25px;">
         </div>
         <script>
           document.addEventListener('DOMContentLoaded', () => {
@@ -223,18 +223,18 @@
             muteToggle.addEventListener('click', () => {
               if (video.muted) {
                 video.muted = false;
-                muteIcon.src = 'https://img.icons8.com/ios-filled/50/ffffff/high-volume.png'; // Unmute icon
+                muteIcon.src = './static/images/high-volume.png'; // Unmute icon
               } else {
                 video.muted = true;
-                muteIcon.src = 'https://img.icons8.com/ios-filled/50/ffffff/mute.png'; // Mute icon
+                muteIcon.src = './static/images/mute.png'; // Mute icon
               }
             });
         
             // Sync icon on volume change
             video.addEventListener('volumechange', () => {
               muteIcon.src = video.muted
-                ? 'https://img.icons8.com/ios-filled/50/ffffff/mute.png'
-                : 'https://img.icons8.com/ios-filled/50/ffffff/high-volume.png';
+                ? './static/images/mute.png'
+                : './static/images/high-volume.png';
             });
           });
         </script>
@@ -263,7 +263,7 @@
                 cursor: pointer;
                 z-index: 10; /* Ensure it appears above the canvas */
             ">
-                <img id="muteIcon1" src="https://img.icons8.com/ios-filled/50/ffffff/mute.png" alt="Mute" style="width: 20px; height: 20px;">
+                <img id="muteIcon1" src="./static/images/mute.png" alt="Mute" style="width: 20px; height: 20px;">
             </div>
           </div>
           <div class="item" style="position: relative;">
@@ -282,7 +282,7 @@
                 cursor: pointer;
                 z-index: 10; /* Ensure it appears above the canvas */
             ">
-                <img id="muteIcon2" src="https://img.icons8.com/ios-filled/50/ffffff/mute.png" alt="Mute" style="width: 20px; height: 20px;">
+                <img id="muteIcon2" src="./static/images/mute.png" alt="Mute" style="width: 20px; height: 20px;">
             </div>
           </div>
           <div class="item" style="position: relative;">
@@ -301,7 +301,7 @@
                 cursor: pointer;
                 z-index: 10; /* Ensure it appears above the canvas */
             ">
-                <img id="muteIcon3" src="https://img.icons8.com/ios-filled/50/ffffff/mute.png" alt="Mute" style="width: 20px; height: 20px;">
+                <img id="muteIcon3" src="./static/images/mute.png" alt="Mute" style="width: 20px; height: 20px;">
             </div>
           </div>
           <div class="item" style="position: relative;">
@@ -320,7 +320,7 @@
                 cursor: pointer;
                 z-index: 10; /* Ensure it appears above the canvas */
             ">
-                <img id="muteIcon4" src="https://img.icons8.com/ios-filled/50/ffffff/mute.png" alt="Mute" style="width: 20px; height: 20px;">
+                <img id="muteIcon4" src="./static/images/mute.png" alt="Mute" style="width: 20px; height: 20px;">
             </div>
           </div>
           <div class="item" style="position: relative;">
@@ -339,7 +339,7 @@
                 cursor: pointer;
                 z-index: 10; /* Ensure it appears above the canvas */
             ">
-                <img id="muteIcon5" src="https://img.icons8.com/ios-filled/50/ffffff/mute.png" alt="Mute" style="width: 20px; height: 20px;">
+                <img id="muteIcon5" src="./static/images/mute.png" alt="Mute" style="width: 20px; height: 20px;">
             </div>
           </div>
           <div class="item" style="position: relative;">
@@ -358,7 +358,7 @@
                 cursor: pointer;
                 z-index: 10; /* Ensure it appears above the canvas */
             ">
-                <img id="muteIcon6" src="https://img.icons8.com/ios-filled/50/ffffff/mute.png" alt="Mute" style="width: 20px; height: 20px;">
+                <img id="muteIcon6" src="./static/images/mute.png" alt="Mute" style="width: 20px; height: 20px;">
             </div>
           </div>
         </div>
@@ -381,17 +381,17 @@
             muteToggle.addEventListener('click', () => {
               if (video.muted) {
                 video.muted = false;
-                muteIcon.src = 'https://img.icons8.com/ios-filled/50/ffffff/high-volume.png'; // Unmute icon
+                muteIcon.src = './static/images/high-volume.png'; // Unmute icon
               } else {
                 video.muted = true;
-                muteIcon.src = 'https://img.icons8.com/ios-filled/50/ffffff/mute.png'; // Mute icon
+                muteIcon.src = './static/images/mute.png'; // Mute icon
               }
             });
   
             video.addEventListener('volumechange', () => {
               muteIcon.src = video.muted
-                ? 'https://img.icons8.com/ios-filled/50/ffffff/mute.png'
-                : 'https://img.icons8.com/ios-filled/50/ffffff/high-volume.png';
+                ? './static/images/mute.png'
+                : './static/images/high-volume.png';
             });
           });
         });
