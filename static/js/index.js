@@ -33,7 +33,7 @@ $(document).ready(function() {
 			slidesToScroll: 1,
 			slidesToShow: 3,
 			loop: true,
-			infinite: true,
+			infinite: false,
 			autoplay: false,
 			autoplaySpeed: 3000,
     }
