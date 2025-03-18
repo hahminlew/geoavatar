@@ -155,14 +155,15 @@
             <h2 class="title is-3">Abstract</h2>
             <div class="content has-text-justified">
             <p>
-                Despite recent progress in 3D head avatar generation, balancing high-fidelity identity preservation, i.e., reconstruction, with robustness to novel poses and expressions, i.e., animation, remains a challenge.
+                Despite recent progress in 3D head avatar generation, balancing identity preservation, i.e., reconstruction, with novel poses and expressions, i.e., animation, remains a challenge. 
                 Existing methods struggle to adapt Gaussians to varying geometrical deviations across facial regions, resulting in suboptimal quality. 
                 To address this, we propose <b>GeoAvatar</b>, a framework for adaptive geometrical Gaussian Splatting. 
-                GeoAvatar leverages <b>A</b>daptive <b>G</b>aussian <b>I</b>nitialization (<b>AGI</b>), an unsupervised method that segments Gaussians into rigid and flexible sets for adaptive offset regularization. 
-                We also introduce a novel mouth interior structure and deformation network to improve animation fidelity and a new regularization loss for precise rigging to 3DMM faces. 
-                Finally, we release DynamicFace, a monocular video dataset with highly expressive facial motions. 
-                Extensive experiments show the superiority of GeoAvatar compared to state-of-the-art methods in head avatar reconstruction and animation.
-                Dataset and pre-trained models will be released after the review.
+                GeoAvatar leverages <b>A</b>daptive <b>G</b>eometrical <b>I</b>nitialization (<b>AGI</b>), an unsupervised method that segments Gaussians into rigid and flexible sets for adaptive offset regularization. 
+                Then, based on mouth anatomy and dynamics, we introduce <b>a novel mouth structure</b> and <b>the part-wise deformation strategy</b> to enhance the animation fidelity of the mouth. 
+                Finally, we propose <b>a regularization loss</b> for precise rigging between Gaussians and 3DMM faces. 
+                Moreover, we release <b>DynamicFace</b>, a video dataset with highly expressive facial motions. 
+                Extensive experiments show the superiority of GeoAvatar compared to state-of-the-art methods in reconstruction and novel animation scenarios. 
+                The dataset and pre-trained models will be released after the publication.
             </p>
             </div>
             <h2 class="title is-3">Methods</h2>
@@ -175,17 +176,33 @@
 <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
-        <h2 class="title is-3">Reenactment</h2>
+        <h2 class="title is-3">Video Comparisons</h2>
       </div>
-      <video id="self" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/self-reenactment.mp4"
+      <video id="selfc" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/self-comparison.mp4"
                 type="video/mp4">
       </video>
-      <video id="cross" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/cross-reenactment.mp4"
+      <video id="crossc" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/cross-comparison.mp4"
                 type="video/mp4">
       </video>
     </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <h2 class="title is-3">More Video Results (Ours)</h2>
+    </div>
+    <video id="selfr" autoplay muted loop playsinline height="100%">
+      <source src="./static/videos/self-reenactment.mp4"
+              type="video/mp4">
+    </video>
+    <video id="crossr" autoplay muted loop playsinline height="100%">
+      <source src="./static/videos/cross-reenactment.mp4"
+              type="video/mp4">
+    </video>
+  </div>
 </section>
 
 <section class="section">
@@ -241,7 +258,7 @@
   
         <div class="content has-text-justified">
           <p>
-            2) Our GeoAvatar is a promising solution for virtual presentations with a speech-driven 3D facial animation module [<a href="">1</a>].             
+            2) Our GeoAvatar is a promising solution for virtual presentations with a speech-driven 3D facial animation module.             
             Point and drag your mouse to see the results!
           </p>
         </div>
@@ -416,7 +433,7 @@
 
 <hr>
                 
-<section class="section">
+<!-- <section class="section">
   <div class="container is-max-desktop">
 
     <div class="columns is-centered">
@@ -427,7 +444,7 @@
           <p>
             [1] <a href="https://github.com/DiffPoseTalk/DiffPoseTalk">DiffPoseTalk: Speech-Driven Stylistic 3D Facial Animation and Head Pose Generation via Diffusion Models</a>.
           </p>
-          <!-- <p>
+          <p>
             [2] <a href="https://github.com/jmliu88/HeSer">Few-Shot Head Swapping in the Wild</a>.
           </p>
           <p>
@@ -441,12 +458,12 @@
           </p>
           <p>
             [6] <a href="https://github.com/e4s2022/e4s">E4S: Fine-grained Face Swapping via Regional GAN Inversion</a>.
-          </p> -->
+          </p>
         </div>
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 
 <footer class="footer">
@@ -463,12 +480,12 @@
       <div class="column is-8">
         <div class="content">
           <p>
-            This website including source images and backgrounds is licensed under a <a rel="license" href="">Creative
+            This website including source images and backgrounds is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
           <p>
-            This project page is borrowed from the <a href="">Nerfies Authors</a>,
-            and is partially based on the point-and-drag function via mouse from <a href="">Ref-Nerf</a>.
+            This project page is borrowed from the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies Authors</a>,
+            and is modified based on the point-and-drag function via mouse from <a href="https://github.com/hahminlew/changer">CHANGER</a>.
             Thanks for sharing the awesome templates.
           </p>
       </div>
