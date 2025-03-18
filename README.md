@@ -1,7 +1,7 @@
 # GeoAvatar
 Thanks for sharing an awesome website template [Nerfies](https://nerfies.github.io).
 
-I also partially employ the point-and-drag function via mouse from [Ref-NeRF](https://dorverbin.github.io/refnerf/).
+I also partially borrowed and modified the point-and-drag function via mouse from [CHANGER](https://github.com/hahminlew/changer).
 
 This is the repository that contains source code for the [GeoAvatar website](https://hahminlew.github.io/geoavatar/).
 
