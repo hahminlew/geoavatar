@@ -7,13 +7,12 @@ This is the repository that contains source code for the [GeoAvatar website](htt
 
 If you find GeoAvatar useful for your work please cite:
 ```
-@InProceedings{Moon_2025_ICCV,
-    author    = {Moon, SeungJun and Lew, Hah Min and Lee, Seungeun and Kang, Ji-Su and Park, Gyeong-Moon},
-    title     = {GeoAvatar: Adaptive Geometrical Gaussian Splatting for 3D Head Avatar},
-    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
-    month     = {October},
-    year      = {2025},
-    pages     = {12811-12821}
+@inproceedings{moon2025geoavatar,
+  title={GeoAvatar: Adaptive Geometrical Gaussian Splatting for 3D Head Avatar},
+  author={Moon, SeungJun and Lew, Hah Min and Lee, Seungeun and Kang, Ji-Su and Park, Gyeong-Moon},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={12811--12821},
+  year={2025}
 }
 ```
 
